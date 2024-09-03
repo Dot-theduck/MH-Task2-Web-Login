@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Simple Web Application with Login and Homepage
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+This is a simple web application that consists of a login page and a homepage. The login page requires the user to enter their name, date of birth, and password. The application calculates the user's age based on their date of birth and validates it against specific criteria. If the age is between 18 and 50, the name and password are sent to a Node.js (Express) server for authentication. If the authentication is successful, the user is redirected to a homepage displaying their name and age.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Age Calculation:** Determines the user's age from the date of birth input.
+- **Age Validation:** Ensures the user is between 18 and 50 years old. If not, an error message is displayed, and the authentication process is halted.
+- **Server-Side Authentication:** The user's name and password are authenticated using hardcoded values on a Node.js (Express) server written in TypeScript.
+- **Homepage:** Upon successful login, the user is redirected to a homepage where their name and age are displayed.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js, Express, TypeScript
 
-### `npm test`
+## Setup Instructions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+- Node.js (version 14 or higher)
+- npm (version 6 or higher)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/simple-web-app.git
+   cd simple-web-app
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Install the dependencies:**
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Usage
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Open the application:**
+   - Navigate to `http://localhost:3000` in your web browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+2. **Login:**
+   - Enter your name, date of birth, and password.
+   - If your age is between 18 and 50, the name and password will be authenticated by the server.
+   - Upon successful authentication, you will be redirected to the homepage.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. **Homepage:**
+   - The homepage will display your name and age if the login was successful.
 
-## Learn More
+### File Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+simple-web-app/
+├── src/
+│   ├── index.ts           # Entry point for the Node.js server
+│   ├── app.ts             # Express application setup
+│   ├── routes/
+│   │   └── auth.ts        # Authentication route
+│   └── views/
+│       ├── login.html     # Login page
+│       └── homepage.html  # Homepage
+├── public/
+│   └── styles.css         # Basic CSS for the application
+├── package.json           # Project metadata and dependencies
+└── tsconfig.json          # TypeScript configuration
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Authentication Logic
+
+The authentication is handled server-side in the `auth.ts` file. The server checks the submitted name and password against hardcoded values. If they match, the server sends a success response, and the user is redirected to the homepage.
+
+### Age Calculation and Validation
+
+The age is calculated client-side using JavaScript by subtracting the user's date of birth from the current date. If the age is not within the valid range (18-50), an error message is displayed, and the login credentials are not sent to the server.
+
+### Customization
+
+- **Change Hardcoded Credentials:**
+  - You can modify the hardcoded credentials in the `auth.ts` file to suit your needs.
+
+- **Styling:**
+  - Update the `styles.css` file in the `public/` directory to customize the look and feel of the application.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries, please contact [your-email@example.com](mailto:your-email@example.com).
+
+---
+
+This `README.md` provides a comprehensive overview of the project, including setup instructions, features, and file structure. You can adjust the details as needed to match your specific project.
